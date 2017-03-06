@@ -44,9 +44,7 @@
 1. Add weapon and return weapon stats
   + __input:__ Sword
   + __Output:__ DMG#, CRT#, TRI_S#, ...
-- Add weapon and return a list of weapons
-  + __input:__ Sword
-  + __Output:__ Sword, Axe, Bow
+
 
 ##### __Weapons__
 1. verify the table is empty
@@ -60,7 +58,7 @@
 - Call weapon stat and return its value
   + __input:__"DMG"
   + __Output:__"15"
-- Add weapon and return a list of weapons
+- Add weapon and return a list of weapons in the weapons table
   + __input:__ Sword
   + __Output:__ Sword, Axe, Bow
 
@@ -72,15 +70,7 @@
   + __input:__ Paladin, "Marc"
   + __Output:__ Paladin, General, Knight
 
-##### __Units_Weapons__
-1. verify the table is empty
-  + Nice
-- Call weapon stat and return its value
-  + __input:__ "STR"
-  + __Output:__ "25"
-- Add unit and return unit stats
-  + __input:__ Sword
-  + __Output:__ HP#, STR#, SKL#, ...
+
 
 
 
