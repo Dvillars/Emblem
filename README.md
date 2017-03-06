@@ -24,7 +24,7 @@
 
 ##### __Players__
 1. verify the table is empty
-  + yes, yes
+  + Nice
 - reads name input
   + __input:__ Nils
   + __Output:__ Nils
@@ -37,8 +37,10 @@
 
 ##### __Units__
 1. verify the table is empty
-  + yes, yes
-- Add weapon to database; return weapon
+  + Nice
+- Add unit to database; return unit
+  + __input:__ General
+  + __Output:__ General
 1. Add weapon and return weapon stats
   + __input:__ Sword
   + __Output:__ DMG#, CRT#, TRI_S#, ...
@@ -48,13 +50,16 @@
 
 ##### __Weapons__
 1. verify the table is empty
-  + yes, yes
-1. Add weapon and return weapon stats
+  + Nice
+1. Add weapon and return weapon
+  + __input:__ Sword
+  + __Output:__ Sword
+1. Call weapon and return weapon stats
   + __input:__ Sword
   + __Output:__ DMG#, CRT#, TRI_S#, ...
 - Call weapon stat and return its value
-  + "STR"
-  + "25"
+  + __input:__"DMG"
+  + __Output:__"15"
 - Add weapon and return a list of weapons
   + __input:__ Sword
   + __Output:__ Sword, Axe, Bow
@@ -62,21 +67,17 @@
 
 ##### __Players_Units__
 1. verify the table is empty
-  + yes, yes
-1. Add weapon and return weapon stats
-  + __input:__ Sword
-  + __Output:__ DMG#, CRT#, TRI_S#, ...
+  + Nice
 - Assign a unit to a player and return a list of units assigned to that player
-  + __input:__ Paladin
+  + __input:__ Paladin, "Marc"
   + __Output:__ Paladin, General, Knight
 
 ##### __Units_Weapons__
 1. verify the table is empty
-  + yes, yes
-
+  + Nice
 - Call weapon stat and return its value
-  + "STR"
-  + "25"
+  + __input:__ "STR"
+  + __Output:__ "25"
 - Add unit and return unit stats
   + __input:__ Sword
   + __Output:__ HP#, STR#, SKL#, ...
