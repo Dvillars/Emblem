@@ -137,7 +137,8 @@ namespace SigilOfFlame
                 bool triWeakEquality = this.GetTriWeak() == newWeapon.GetTriWeak();
                 bool effectEquality = this.GetEffect() == newWeapon.GetEffect();
                 bool idEquality = this.GetId() == newWeapon.GetId();
-                return (wepNameEquality && wepTypeEquality && rngEquality && dmgEquality && crtEquality && triStrongEquality && triWeakEquality && idEquality);
+
+                return (wepNameEquality && wepTypeEquality && rngEquality && dmgEquality && hitEquality && crtEquality && triStrongEquality && triWeakEquality && idEquality);
             }
         }
 
@@ -178,7 +179,7 @@ namespace SigilOfFlame
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO weapons (wepName, wepType, rng, dmg, hit, crt, triStrong, triWeak, effect) OUTPUT INSERTED.id VALUES (@WeaponName, @WeaponType, @Range, @Damage, @Hit, @Crit, @TriStrong, @TriWeak, @Effect);", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO weapons (wep_name, wep_type, rng, dmg, hit, crt, tri_strong, tri_weak, effect) OUTPUT INSERTED.id VALUES (@WeaponName, @WeaponType, @Range, @Damage, @Hit, @Crit, @TriStrong, @TriWeak, @Effect);", conn);
 
             cmd.Parameters.Add(new SqlParameter("@WeaponName", this.GetWeaponName()));
             cmd.Parameters.Add(new SqlParameter("@WeaponType", this.GetWeaponType()));
