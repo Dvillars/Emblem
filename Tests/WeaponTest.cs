@@ -60,16 +60,16 @@ namespace SigilOfFlame
             Assert.Equal(theDeity.GetWeaponName(), weaponList[0].GetWeaponName());
         }
 
-        // [Fact]
-        // public void WeaponTest_Find_FindsWeaponInDatabase()
-        // {
-        //     // Arrange, Act
-        //     theDeity.Save();
-        //     Weapon foundWeapon = Weapon.Find(theDeity.GetWeaponId());
-        //
-        //     // Assert
-        //     Assert.Equal(theDeity, foundWeapon);
-        // }
+        [Fact]
+        public void WeaponTest_Find_FindsWeaponInDatabase()
+        {
+            // Arrange, Act
+            theDeity.Save();
+            Weapon foundWeapon = Weapon.Find(theDeity.GetWeaponId());
+
+            // Assert
+            Assert.Equal(theDeity, foundWeapon);
+        }
 
         public void Dispose()
         {
