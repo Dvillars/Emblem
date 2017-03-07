@@ -61,14 +61,8 @@ namespace SigilOfFlame
                 allPlayers.Add(newPlayer);
             }
 
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+
+            DB.CloseSqlConnection(rdr, conn);
 
             return allPlayers;
         }
@@ -92,14 +86,8 @@ namespace SigilOfFlame
             {
                 this._id = rdr.GetInt32(0);
             }
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+
+            DB.CloseSqlConnection(rdr, conn);
         }
 
         public static Player Find(int id)
@@ -124,14 +112,8 @@ namespace SigilOfFlame
             }
             Player foundPlayer = new Player(foundPlayerName,  foundPlayerId);
 
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            DB.CloseSqlConnection(rdr, conn);
+
             return foundPlayer;
         }
 
@@ -156,11 +138,7 @@ namespace SigilOfFlame
 
         public static void DeleteAll()
         {
-            SqlConnection conn = DB.Connection();
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM players;", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            DB.TableDeleteAll("players");
         }
 
     }
