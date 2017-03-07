@@ -20,6 +20,8 @@
   4. Player one's turn ends, it is now player two's turn
     - start from 1 and do the same.
 
+
+
 ## __*Specifications:*__
 
 ##### __Players__
@@ -78,6 +80,8 @@
 ## __*Example Tables:*__
 
 ![A picture of our table layout](/img/Table_layouts.png)
+  
+[A link to combat calculation](https://serenesforest.net/blazing-sword/miscellaneous/calculations/)
 
 
 ## __*Support and Contact:*__
