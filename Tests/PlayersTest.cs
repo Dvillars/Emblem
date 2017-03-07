@@ -70,27 +70,6 @@ namespace SigilOfFlame
             Assert.Equal(testPlayer, foundPlayer);
         }
 
-        [Fact]
-        public void Test_Delete_DeletesTaskAssociationsFromDatabase()
-        {
-            //Arrange
-            Category testCategory = new Category("Home stuff");
-            testCategory.Save();
-
-            Task testTask = new Task("Mow the lawn");
-            testTask.Save();
-
-            //Act
-            testTask.AddCategory(testCategory);
-            testTask.Delete();
-
-            List<Task> resultCategoryTasks = testCategory.GetTasks();
-            List<Task> testCategoryTasks = new List<Task> {};
-
-            //Assert
-            Assert.Equal(testCategoryTasks, resultCategoryTasks);
-        }
-
         public void Dispose()
         {
             Player.DeleteAll();

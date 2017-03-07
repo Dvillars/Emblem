@@ -20,75 +20,75 @@ namespace SigilOfFlame
 
         public Unit (string unitName, string unitType, int weaponId, int hp, int str, int skl, int spd, int lck, int def, int res, int id=0)
         {
-            _unitName = unitName
-            _unitType = unitType
-            _weaponId = weaponId
-            _hp = hp
-            _str = str
-            _skl = skl
-            _spd = spd
-            _lck = lck
-            _def = def
-            _res = res
-            _id = id
+            _unitName = unitName;
+            _unitType = unitType;
+            _weaponId = weaponId;
+            _hp = hp;
+            _str = str;
+            _skl = skl;
+            _spd = spd;
+            _lck = lck;
+            _def = def;
+            _res = res;
+            _id = id;
         }
 
         public string GetUnitName()
         {
-            return unitName;
+            return _unitName;
         }
 
         public string GetUnitType()
         {
-            return unitType;
+            return _unitType;
         }
 
         public int GetWeaponId()
         {
-            return weaponId;
+            return _weaponId;
         }
 
         public int GetHitpoints()
         {
-            return hp;
+            return _hp;
         }
 
         public int GetStrength()
         {
-            return str;
+            return _str;
         }
 
         public int GetSkill()
         {
-            return skl;
+            return _skl;
         }
 
         public int GetSpeed()
         {
-            return spd;
+            return _spd;
         }
 
         public int GetLuck()
         {
-            return lck;
+            return _lck;
         }
 
         public int GetDefense()
         {
-            return def;
+            return _def;
         }
 
         public int GetResistance()
         {
-            return res;
+            return _res;
         }
 
-        public void SetUnitName(int unitNameNew)
+        public void SetUnitName(string unitNameNew)
         {
             _unitName = unitNameNew;
         }
 
-        public void SetUnitType(int unitTypeNew)
+        public void SetUnitType(string unitTypeNew)
         {
             _unitType = unitTypeNew;
         }
@@ -135,29 +135,29 @@ namespace SigilOfFlame
 
         public int GetUnitId()
         {
-            return _Id;
+            return _id;
         }
 
-        public override bool Equals(System.Object otherPlayer)
+        public override bool Equals(System.Object otherUnit)
         {
-            if (!(otherPlayer is Player))
+            if (!(otherUnit is Unit))
             {
                 return false;
             }
             else
             {
-                Player newPlayer = (Player) otherPlayer;
-                bool unitNameEquality = this.GetUnitName() == newPlayer.GetUnitName();
-                bool unitTypeEquality = this.GetUnitType() == newPlayer.GetUnitType();
-                bool weaponIdEquality = this.GetWeaponId() == newPlayer.GetWeaponId();
-                bool hitpointsEquality = this.GetHitpoints() == newPlayer.GetHitpoints();
-                bool strengthEquality = this.GetStrength() == newPlayer.GetStrength();
-                bool skillEquality = this.GetSkill() == newPlayer.GetSkill();
-                bool speedEquality = this.GetSpeed() == newPlayer.GetSpeed();
-                bool luckEquality = this.GetLuck() == newPlayer.GetLuck();
-                bool defenseEquality = this.GetDefense() == newPlayer.GetDefense();
-                bool resistanceEquality = this.GetResistance() == newPlayer.GetResistance();
-                bool unitIdEquality = this.GetUnitId() == newPlayer.GetUnitId();
+                Unit newUnit = (Unit) otherUnit;
+                bool unitNameEquality = this.GetUnitName() == newUnit.GetUnitName();
+                bool unitTypeEquality = this.GetUnitType() == newUnit.GetUnitType();
+                bool weaponIdEquality = this.GetWeaponId() == newUnit.GetWeaponId();
+                bool hitpointsEquality = this.GetHitpoints() == newUnit.GetHitpoints();
+                bool strengthEquality = this.GetStrength() == newUnit.GetStrength();
+                bool skillEquality = this.GetSkill() == newUnit.GetSkill();
+                bool speedEquality = this.GetSpeed() == newUnit.GetSpeed();
+                bool luckEquality = this.GetLuck() == newUnit.GetLuck();
+                bool defenseEquality = this.GetDefense() == newUnit.GetDefense();
+                bool resistanceEquality = this.GetResistance() == newUnit.GetResistance();
+                bool unitIdEquality = this.GetUnitId() == newUnit.GetUnitId();
                 return (unitNameEquality && unitTypeEquality && weaponIdEquality && hitpointsEquality && strengthEquality && skillEquality && speedEquality && luckEquality && defenseEquality && resistanceEquality && unitIdEquality);
             }
         }
@@ -174,17 +174,17 @@ namespace SigilOfFlame
 
             while(rdr.Read())
             {
-                string unitName = rdr.GetInt32(1);
-                string unitType = rdr.GetInt32(2);
+                string unitName = rdr.GetString(1);
+                string unitType = rdr.GetString(2);
                 int weaponId = rdr.GetInt32(3);
                 int hp = rdr.GetInt32(4);
                 int str = rdr.GetInt32(5);
                 int skl = rdr.GetInt32(6);
                 int spd = rdr.GetInt32(7);
                 int lck = rdr.GetInt32(8);
-                int def = rdr.GetString(9);
-                int res = rdr.GetString(10);
-                int id = rdr.GetString(0);
+                int def = rdr.GetInt32(9);
+                int res = rdr.GetInt32(10);
+                int id = rdr.GetInt32(0);
                 Unit newUnit = new Unit(unitName, unitType, weaponId, hp, str, skl, spd, lck, def, res, id);
                 allUnits.Add(newUnit);
             }
@@ -219,8 +219,6 @@ namespace SigilOfFlame
             cmd.Parameters.Add(new SqlParameter("@Defense", this.GetDefense()));
             cmd.Parameters.Add(new SqlParameter("@Resistance", this.GetResistance()));
 
-            cmd.Parameters.Add(UnitNameParameter);
-
             SqlDataReader rdr = cmd.ExecuteReader();
 
             while(rdr.Read())
@@ -249,33 +247,33 @@ namespace SigilOfFlame
             cmd.Parameters.Add(taskIdParameter);
             SqlDataReader rdr = cmd.ExecuteReader();
 
-            string unitName = null;
-            string unitType = null;
-            int weaponId = 0;
-            int hp = 0;
-            int str = 0;
-            int skl = 0;
-            int spd = 0;
-            int lck = 0;
-            int def = 0;
-            int res = 0;
-            int id = 0;
+            string unitNameFound = null;
+            string unitTypeFound = null;
+            int weaponIdFound = 0;
+            int hpFound = 0;
+            int strFound = 0;
+            int sklFound = 0;
+            int spdFound = 0;
+            int lckFound = 0;
+            int defFound = 0;
+            int resFound = 0;
+            int idFound = 0;
 
             while(rdr.Read())
             {
-                string unitName = rdr.GetInt32(1);
-                string unitType = rdr.GetInt32(2);
-                int weaponId = rdr.GetInt32(3);
-                int hp = rdr.GetInt32(4);
-                int str = rdr.GetInt32(5);
-                int skl = rdr.GetInt32(6);
-                int spd = rdr.GetInt32(7);
-                int lck = rdr.GetInt32(8);
-                int def = rdr.GetString(9);
-                int res = rdr.GetString(10);
-                int id = rdr.GetString(0);
+                unitNameFound = rdr.GetString(1);
+                unitTypeFound = rdr.GetString(2);
+                weaponIdFound = rdr.GetInt32(3);
+                hpFound = rdr.GetInt32(4);
+                strFound = rdr.GetInt32(5);
+                sklFound = rdr.GetInt32(6);
+                spdFound = rdr.GetInt32(7);
+                lckFound = rdr.GetInt32(8);
+                defFound = rdr.GetInt32(9);
+                resFound = rdr.GetInt32(10);
+                idFound = rdr.GetInt32(0);
             }
-            Unit foundUnit = new Unit(unitName, unitType, weaponId, hp, str, skl, spd, lck, def, res, id);
+            Unit foundUnit = new Unit(unitNameFound, unitTypeFound, weaponIdFound, hpFound, strFound, sklFound, spdFound, lckFound, defFound, resFound, idFound);
 
             if (rdr != null)
             {
@@ -288,6 +286,14 @@ namespace SigilOfFlame
             return foundUnit;
         }
 
+        public static void DeleteAll()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM units;", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
 
