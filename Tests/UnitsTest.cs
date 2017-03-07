@@ -94,6 +94,7 @@ namespace SigilOfFlame
         public void Dispose()
         {
             Unit.DeleteAll();
+            Player.DeleteAll();
         }
 
 

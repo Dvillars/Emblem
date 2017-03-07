@@ -269,7 +269,7 @@ namespace SigilOfFlame
 
         public static void DeleteAll()
         {
-             DB.TableDeleteAll("units");
+            DB.TableDeleteAll("units");
         }
 
 
