@@ -228,10 +228,10 @@ namespace SigilOfFlame
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM units WHERE id = @UnitId;", conn);
-            SqlParameter taskIdParameter = new SqlParameter();
-            taskIdParameter.ParameterName = "@UnitId";
-            taskIdParameter.Value = id.ToString();
-            cmd.Parameters.Add(taskIdParameter);
+            SqlParameter unitIdParameter = new SqlParameter();
+            unitIdParameter.ParameterName = "@UnitId";
+            unitIdParameter.Value = id.ToString();
+            cmd.Parameters.Add(unitIdParameter);
             SqlDataReader rdr = cmd.ExecuteReader();
 
             string unitNameFound = null;
@@ -265,6 +265,48 @@ namespace SigilOfFlame
             DB.CloseSqlConnection(rdr, conn);
 
             return foundUnit;
+        }
+
+        public Weapon GetWeapon()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM weapons WHERE id = @WeaponId;", conn);
+            cmd.Parameters.Add(new SqlParameter("@WeaponId", this.GetWeaponId()));
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            string foundWeaponWepName = null;
+            string foundWeaponWepType = null;
+            int foundWeaponRng = 0;
+            int foundWeaponDmg = 0;
+            int foundWeaponHit = 0;
+            int foundWeaponCrt = 0;
+            string foundWeaponTriStrong = null;
+            string foundWeaponTriWeak = null;
+            string foundWeaponEffect = null;
+            int foundWeaponId = 0;
+
+
+            while(rdr.Read())
+            {
+                foundWeaponWepName = rdr.GetString(1);
+                foundWeaponWepType = rdr.GetString(2);
+                foundWeaponRng = rdr.GetInt32(3);
+                foundWeaponDmg = rdr.GetInt32(4);
+                foundWeaponHit = rdr.GetInt32(5);
+                foundWeaponCrt = rdr.GetInt32(6);
+                foundWeaponTriStrong = rdr.GetString(7);
+                foundWeaponTriWeak = rdr.GetString(8);
+                foundWeaponEffect = rdr.GetString(9);
+                foundWeaponId = rdr.GetInt32(0);
+            }
+
+            Weapon foundWeapon = new Weapon(foundWeaponWepName, foundWeaponWepType, foundWeaponRng, foundWeaponDmg, foundWeaponHit, foundWeaponCrt, foundWeaponTriStrong, foundWeaponTriWeak, foundWeaponEffect, foundWeaponId);
+
+            DB.CloseSqlConnection(rdr, conn);
+
+            return foundWeapon;
         }
 
         public static void DeleteAll()
