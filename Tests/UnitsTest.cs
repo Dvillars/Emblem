@@ -9,7 +9,7 @@ namespace SigilOfFlame
     public class UnitTest : IDisposable
     {
         public static Unit theDeity = new Unit("Deity", "General", 1, 60, 45, 20, 10, 14, 58, 58);
-        public static Unit thePansy = new Unit("Pansy", "Bard", 1, 20, 1, 8, 8, 8, 8, 60);
+        public static Unit theShot = new Unit("Shot", "Sniper", 2, 35, 50, 50, 30, 5, 30, 30);
         public static int unitCount = Unit.GetAll().Count;
         // public static List<Unit> unitList = Unit.GetAll();
         public UnitTest()
@@ -27,7 +27,7 @@ namespace SigilOfFlame
 
 
         [Fact]
-        public void UnitTest_Save_SavesCategoryToDatabase()
+        public void UnitTest_Save_SavesUnitToDatabase()
         {
             //Arrange
             theDeity.Save();
@@ -42,7 +42,7 @@ namespace SigilOfFlame
 
 
         [Fact]
-        public void UnitTest_Save_AssignsIdToCategoryObject()
+        public void UnitTest_Save_AssignsIdToUnitObject()
         {
             //Arrange, Act
             theDeity.Save();
@@ -69,7 +69,7 @@ namespace SigilOfFlame
 
 
         [Fact]
-        public void UnitTest_Find_FindsCategoryInDatabase()
+        public void UnitTest_Find_FindsUnitInDatabase()
         {
             // Arrange, Act
             theDeity.Save();
@@ -81,7 +81,7 @@ namespace SigilOfFlame
         }
         //
         // [Fact]
-        // public void UnitTest_Delete_DeletesCategoryFromDatabase()
+        // public void UnitTest_Delete_DeletesUnitFromDatabase()
         // {
         //Arrange
 

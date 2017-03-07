@@ -220,6 +220,5 @@ namespace SigilOfFlame
         {
             DB.TableDeleteAll("players");
         }
-
     }
 }

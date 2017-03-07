@@ -32,7 +32,7 @@ namespace SigilOfFlame
         }
 
 
-        public int GetId()
+        public int GetWeaponId()
         {
             return _id;
         }
@@ -136,8 +136,9 @@ namespace SigilOfFlame
                 bool triStrongEquality = this.GetTriStrong() == newWeapon.GetTriStrong();
                 bool triWeakEquality = this.GetTriWeak() == newWeapon.GetTriWeak();
                 bool effectEquality = this.GetEffect() == newWeapon.GetEffect();
-                bool idEquality = this.GetId() == newWeapon.GetId();
-                return (wepNameEquality && wepTypeEquality && rngEquality && dmgEquality && crtEquality && triStrongEquality && triWeakEquality && idEquality);
+                bool idEquality = this.GetWeaponId() == newWeapon.GetWeaponId();
+
+                return (wepNameEquality && wepTypeEquality && rngEquality && dmgEquality && hitEquality && crtEquality && triStrongEquality && triWeakEquality && idEquality);
             }
         }
 
@@ -178,7 +179,7 @@ namespace SigilOfFlame
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO weapons (wepName, wepType, rng, dmg, hit, crt, triStrong, triWeak, effect) OUTPUT INSERTED.id VALUES (@WeaponName, @WeaponType, @Range, @Damage, @Hit, @Crit, @TriStrong, @TriWeak, @Effect);", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO weapons (wep_name, wep_type, rng, dmg, hit, crt, tri_strong, tri_weak, effect) OUTPUT INSERTED.id VALUES (@WeaponName, @WeaponType, @Range, @Damage, @Hit, @Crit, @TriStrong, @TriWeak, @Effect);", conn);
 
             cmd.Parameters.Add(new SqlParameter("@WeaponName", this.GetWeaponName()));
             cmd.Parameters.Add(new SqlParameter("@WeaponType", this.GetWeaponType()));
@@ -253,7 +254,7 @@ namespace SigilOfFlame
         //   SqlCommand cmd = new SqlCommand("DELETE FROM weapons WHERE id = @WeaponId; DELETE FROM categories_weapons WHERE weapon_id = @WeaponId;", conn);
         //   SqlParameter weaponIdParameter = new SqlParameter();
         //   weaponIdParameter.ParameterName = "@WeaponId";
-        //   weaponIdParameter.Value = this.GetId();
+        //   weaponIdParameter.Value = this.GetWeaponId();
         //
         //   cmd.Parameters.Add(weaponIdParameter);
         //   cmd.ExecuteNonQuery();
