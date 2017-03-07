@@ -206,7 +206,7 @@ namespace SigilOfFlame
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO units (unitName, unitType, weaponId, hp, str, skl, spd, lck, def, res) OUTPUT INSERTED.id VALUES (@UnitName, @UnitType, @WeaponId, @Hitpoints, @Strength, @Skill, @Speed, @Luck, @Defense, @Resistance);", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO units (unit_name, unit_type, weapon_id, hp, str, skl, spd, lck, def, res) OUTPUT INSERTED.id VALUES (@UnitName, @UnitType, @WeaponId, @Hitpoints, @Strength, @Skill, @Speed, @Luck, @Defense, @Resistance);", conn);
 
             cmd.Parameters.Add(new SqlParameter("@UnitName", this.GetUnitName()));
             cmd.Parameters.Add(new SqlParameter("@UnitType", this.GetUnitType()));
@@ -240,7 +240,7 @@ namespace SigilOfFlame
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM tasks WHERE id = @UnitId;", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM units WHERE id = @UnitId;", conn);
             SqlParameter taskIdParameter = new SqlParameter();
             taskIdParameter.ParameterName = "@UnitId";
             taskIdParameter.Value = id.ToString();
