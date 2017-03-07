@@ -218,7 +218,7 @@ namespace SigilOfFlame
             {
                 this._id = rdr.GetInt32(0);
             }
-            
+
             DB.CloseSqlConnection(rdr, conn);
         }
 
@@ -269,11 +269,7 @@ namespace SigilOfFlame
 
         public static void DeleteAll()
         {
-            SqlConnection conn = DB.Connection();
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM units;", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+             DB.TableDeleteAll("units");
         }
 
 

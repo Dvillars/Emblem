@@ -168,14 +168,7 @@ namespace SigilOfFlame
                 allWeapons.Add(newWeapon);
             }
 
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            DB.CloseSqlConnection(rdr, conn);
 
             return allWeapons;
         }
@@ -203,14 +196,8 @@ namespace SigilOfFlame
             {
                 this._id = rdr.GetInt32(0);
             }
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+
+            DB.CloseSqlConnection(rdr, conn);
         }
 
         public static Weapon Find(int id)
@@ -253,14 +240,8 @@ namespace SigilOfFlame
 
             Weapon foundWeapon = new Weapon(foundWeaponWepName, foundWeaponWepType, foundWeaponRng, foundWeaponDmg, foundWeaponHit, foundWeaponCrt, foundWeaponTriStrong, foundWeaponTriWeak, foundWeaponEffect, foundWeaponId);
 
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            DB.CloseSqlConnection(rdr, conn);
+
             return foundWeapon;
         }
 
@@ -285,11 +266,7 @@ namespace SigilOfFlame
 
         public static void DeleteAll()
         {
-            SqlConnection conn = DB.Connection();
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM weapons;", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+             DB.TableDeleteAll("weapons");
         }
     }
 }
