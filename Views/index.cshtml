@@ -1,0 +1,121 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+
+        <div class="col s6">
+            <form class="form" action="index.html" method="post">
+                <input placeholder="Player One's Name"type="text" name="" value="">
+
+                <div id="p1-first-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName()</option>
+                        }
+                        <label for="p1-first-unit">Select your first unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-second-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName()</option>
+                        }
+                        <label for="p1-second-unit">Select your second unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-third-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName()</option>
+                        }
+                        <label for="p1-third-unit">Select your third unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-fourth-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName()</option>
+                        }
+                        <label for="p1-fourth-unit">Select your fourth unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-fifth-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName()</option>
+                        }
+                        <label for="p1-fifth-unit">Select your fifth unit</label>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="col s6">
+            <form class="form" action="index.html" method="post">
+                <input placeholder="Player One's Name"type="text" name="" value="">
+
+                <div id="p1-first-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option>
+                        }
+                        <label for="p1-first-unit">Select your first unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-second-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option>
+                        }
+                        <label for="p1-second-unit">Select your second unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-third-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option>
+                        }
+                        <label for="p1-third-unit">Select your third unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-fourth-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option>
+                        }
+                        <label for="p1-fourth-unit">Select your fourth unit</label>
+                    </select>
+                </div>
+
+                <div id="p1-fifth-unit" class="">
+                    <select>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option>
+                        }
+                        <label for="p1-fifth-unit">Select your fifth unit</label>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
