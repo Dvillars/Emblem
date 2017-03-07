@@ -112,6 +112,7 @@ namespace SigilOfFlame
         {
             Unit.DeleteAll();
             Weapon.DeleteAll();
+            Player.DeleteAll();
         }
     }
 }
