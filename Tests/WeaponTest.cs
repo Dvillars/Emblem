@@ -8,8 +8,8 @@ namespace SigilOfFlame
 {
     public class WeaponTest : IDisposable
     {
-        public static Weapon theDeity = new Weapon("Deity", "Spear", 1, 10, 95, 0, "Sword", "Ax", "Null");
-        public static Weapon theShot = new Weapon("Shot", "Bow", 2, 15, 100, 5, "Null", "Null", "Pegasus Knight");
+        public static Weapon coolPokey = new Weapon("Cool Pokey", "Spear", 1, 10, 95, 0, "Sword", "Ax", "Null");
+        public static Weapon superShot = new Weapon("Super Shot", "Bow", 2, 15, 100, 5, "Null", "Null", "Pegasus Knight");
         public static int weaponCount = Weapon.GetAll().Count;
 
         public WeaponTest()
@@ -29,51 +29,52 @@ namespace SigilOfFlame
         public void WeaponTest_Save_SavesWeaponToDatabase()
         {
             //Arrange
-            theDeity.Save();
+            coolPokey.Save();
 
             //Act
             List<Weapon> weaponList = Weapon.GetAll();
 
             //Assert
-            Assert.Equal(theDeity.GetWeaponName(), weaponList[0].GetWeaponName());
+            Assert.Equal(coolPokey.GetWeaponName(), weaponList[0].GetWeaponName());
         }
 
         [Fact]
         public void WeaponTest_Save_AssignsIdToWeaponObject()
         {
             //Arrange, Act
-            theDeity.Save();
+            coolPokey.Save();
             List<Weapon> weaponList = Weapon.GetAll();
 
             //Assert
-            Assert.Equal(theDeity.GetWeaponId(), weaponList[0].GetWeaponId());
+            Assert.Equal(coolPokey.GetWeaponId(), weaponList[0].GetWeaponId());
         }
 
         [Fact]
         public void WeaponTest_Equal_ReturnsTrueForSameName()
         {
             // Arrange, Act
-            theDeity.Save();
+            coolPokey.Save();
             List<Weapon> weaponList = Weapon.GetAll();
 
             // Assert
-            Assert.Equal(theDeity.GetWeaponName(), weaponList[0].GetWeaponName());
+            Assert.Equal(coolPokey.GetWeaponName(), weaponList[0].GetWeaponName());
         }
 
         [Fact]
         public void WeaponTest_Find_FindsWeaponInDatabase()
         {
             // Arrange, Act
-            theDeity.Save();
-            Weapon foundWeapon = Weapon.Find(theDeity.GetWeaponId());
+            coolPokey.Save();
+            Weapon foundWeapon = Weapon.Find(coolPokey.GetWeaponId());
 
             // Assert
-            Assert.Equal(theDeity, foundWeapon);
+            Assert.Equal(coolPokey, foundWeapon);
         }
 
         public void Dispose()
         {
           Weapon.DeleteAll();
+          Unit.DeleteAll();
         }
     }
 }

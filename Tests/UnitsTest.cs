@@ -8,9 +8,13 @@ namespace SigilOfFlame
 {
     public class UnitTest : IDisposable
     {
-        public static Unit theDeity = new Unit("Deity", "General", 1, 60, 45, 20, 10, 14, 58, 58);
-        public static Unit theShot = new Unit("Shot", "Sniper", 2, 35, 50, 50, 30, 5, 30, 30);
+        public static Unit theDeity = new Unit("Marc", "General", 1, 60, 45, 20, 10, 14, 58, 58);
+        public static Unit theShot = new Unit("Derek", "Sniper", 2, 35, 50, 50, 30, 5, 30, 30);
         public static int unitCount = Unit.GetAll().Count;
+
+        public static Weapon coolPokey = new Weapon("Cool Pokey", "Spear", 1, 10, 95, 0, "Sword", "Ax", "Null");
+        public static Weapon superShot = new Weapon("Super Shot", "Bow", 2, 15, 100, 5, "Null", "Null", "Pegasus Knight");
+        public static int weaponCount = Weapon.GetAll().Count;
         // public static List<Unit> unitList = Unit.GetAll();
         public UnitTest()
         {
@@ -79,7 +83,20 @@ namespace SigilOfFlame
             Assert.Equal(theDeity, foundUnit);
 
         }
-        //
+
+        [Fact]
+        public void UnitTest_GetWeapon_GetsEquipedWeapon()
+        {
+            coolPokey.Save();
+            superShot.Save();
+            theDeity.Save();
+            theShot.Save();
+
+            theDeity.SetWeaponId(coolPokey.GetWeaponId());
+
+            Assert.Equal(coolPokey.GetWeaponName(), theDeity.GetWeapon().GetWeaponName());
+        }
+
         // [Fact]
         // public void UnitTest_Delete_DeletesUnitFromDatabase()
         // {
@@ -94,10 +111,7 @@ namespace SigilOfFlame
         public void Dispose()
         {
             Unit.DeleteAll();
+            Weapon.DeleteAll();
         }
-
-
-
-
     }
 }
