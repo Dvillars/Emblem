@@ -27,7 +27,7 @@ namespace SigilOfFlame
 
 
         [Fact]
-        public void UnitTest_Save_SavesCategoryToDatabase()
+        public void UnitTest_Save_SavesUnitToDatabase()
         {
             //Arrange
             theDeity.Save();
@@ -42,7 +42,7 @@ namespace SigilOfFlame
 
 
         [Fact]
-        public void UnitTest_Save_AssignsIdToCategoryObject()
+        public void UnitTest_Save_AssignsIdToUnitObject()
         {
             //Arrange, Act
             theDeity.Save();
@@ -69,7 +69,7 @@ namespace SigilOfFlame
 
 
         [Fact]
-        public void UnitTest_Find_FindsCategoryInDatabase()
+        public void UnitTest_Find_FindsUnitInDatabase()
         {
             // Arrange, Act
             theDeity.Save();
@@ -81,7 +81,7 @@ namespace SigilOfFlame
         }
         //
         // [Fact]
-        // public void UnitTest_Delete_DeletesCategoryFromDatabase()
+        // public void UnitTest_Delete_DeletesUnitFromDatabase()
         // {
         //Arrange
 

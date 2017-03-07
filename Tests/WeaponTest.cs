@@ -26,7 +26,7 @@ namespace SigilOfFlame
         }
 
         [Fact]
-        public void WeaponTest_Save_SavesCategoryToDatabase()
+        public void WeaponTest_Save_SavesWeaponToDatabase()
         {
             //Arrange
             theDeity.Save();
@@ -39,7 +39,7 @@ namespace SigilOfFlame
         }
 
         // [Fact]
-        // public void WeaponTest_Save_AssignsIdToCategoryObject()
+        // public void WeaponTest_Save_AssignsIdToWeaponObject()
         // {
         //     //Arrange, Act
         //     theDeity.Save();
@@ -61,7 +61,7 @@ namespace SigilOfFlame
         // }
         //
         // [Fact]
-        // public void WeaponTest_Find_FindsCategoryInDatabase()
+        // public void WeaponTest_Find_FindsWeaponInDatabase()
         // {
         //     // Arrange, Act
         //     theDeity.Save();
