@@ -38,17 +38,17 @@ namespace SigilOfFlame
             Assert.Equal(theDeity.GetWeaponName(), weaponList[0].GetWeaponName());
         }
 
-        // [Fact]
-        // public void WeaponTest_Save_AssignsIdToWeaponObject()
-        // {
-        //     //Arrange, Act
-        //     theDeity.Save();
-        //     List<Weapon> weaponList = Weapon.GetAll();
-        //
-        //     //Assert
-        //     Assert.Equal(theDeity.GetWeaponId(), weaponList[0].GetWeaponId());
-        // }
-        //
+        [Fact]
+        public void WeaponTest_Save_AssignsIdToWeaponObject()
+        {
+            //Arrange, Act
+            theDeity.Save();
+            List<Weapon> weaponList = Weapon.GetAll();
+
+            //Assert
+            Assert.Equal(theDeity.GetWeaponId(), weaponList[0].GetWeaponId());
+        }
+
         // [Fact]
         // public void WeaponTest_Equal_ReturnsTrueForSameName()
         // {
