@@ -271,9 +271,5 @@ namespace SigilOfFlame
         {
              DB.TableDeleteAll("units");
         }
-
-
-
-
     }
 }
