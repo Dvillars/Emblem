@@ -17,115 +17,105 @@ namespace SigilOfFlame
         private string _triWeak;
         private string _effect;
 
-        public Unit (
-        string wepName,
-        string wepType,
-        int rng,
-        int dmg,
-        int hit,
-        int crt,
-        string triStrong,
-        string triWeak,
-        string effect,
-        int id=0)
+        public Weapon (string wepName, string wepType, int rng, int dmg, int hit, int crt, string triStrong, string triWeak, string effect, int id=0)
         {
-            _id = id
-            _wepName = wepName
-            _wepType = wepType
-            _rng = rng
-            _dmg = dmg
-            _hit = hit
-            _crt = crt
-            _triStrong = triStrong
-            _triWeak = triWeak
-            _effect = effect
+            _id = id;
+            _wepName = wepName;
+            _wepType = wepType;
+            _rng = rng;
+            _dmg = dmg;
+            _hit = hit;
+            _crt = crt;
+            _triStrong = triStrong;
+            _triWeak = triWeak;
+            _effect = effect;
         }
 
 
         public int GetId()
         {
-            return _id
+            return _id;
         }
 
-        public string GetWepName()
+        public string GetWeaponName()
         {
-            return _wepName
+            return _wepName;
         }
-        public void SetWepName(string wepNameNew)
+        public void SetWeaponName(string wepNameNew)
         {
-            _wepName = wepNameNew
-        }
-
-        public string GetWepType()
-        {
-            return _wepType
-        }
-        public void SetWepType(string wepTypeNew)
-        {
-            _wepType = wepTypeNew
+            _wepName = wepNameNew;
         }
 
-        public int GetRng()
+        public string GetWeaponType()
         {
-            return _rng
+            return _wepType;
         }
-        public void SetRng(int rngNew)
+        public void SetWeaponType(string wepTypeNew)
         {
-            _rng = rngNew
+            _wepType = wepTypeNew;
         }
 
-        public int GetDmg()
+        public int GetRange()
         {
-            return _dmg
+            return _rng;
         }
-        public void SetDmg(int dmgNew)
+        public void SetRange(int rngNew)
         {
-            _dmg = dmgNew
+            _rng = rngNew;
+        }
+
+        public int GetDamage()
+        {
+            return _dmg;
+        }
+        public void SetDamage(int dmgNew)
+        {
+            _dmg = dmgNew;
         }
 
         public int GetHit()
         {
-            return _hit
+            return _hit;
         }
         public void SetHit(int hitNew)
         {
-            _hit = hitNew
+            _hit = hitNew;
         }
 
-        public int GetCrt()
+        public int GetCrit()
         {
-            return _crt
+            return _crt;
         }
-        public void SetCrt(int crtNew)
+        public void SetCrit(int crtNew)
         {
-            _crt = crtNew
+            _crt = crtNew;
         }
 
         public string GetTriStrong()
         {
-            return _triStrong
+            return _triStrong;
         }
         public void SetTriStrong(string triStrongNew)
         {
-            _triStrong = triStrongNew
+            _triStrong = triStrongNew;
         }
 
         public string GetTriWeak()
         {
-            return _triWeak
+            return _triWeak;
         }
         public void SetTriWeak(string triWeakNew)
         {
-            _triWeak = triWeakNew
+            _triWeak = triWeakNew;
         }
 
         public string GetEffect()
         {
-            return _effect
+            return _effect;
         }
         public void SetEffect(string effectNew)
         {
-            _effect = effectNew
+            _effect = effectNew;
         }
 
         public override bool Equals(System.Object otherWeapon)
@@ -137,12 +127,12 @@ namespace SigilOfFlame
             else
             {
                 Weapon newWeapon = (Weapon) otherWeapon;
-                bool wepNameEquality = this.GetWepName() == newWeapon.GetWepName();
-                bool wepTypeEquality = this.GetWepType() == newWeapon.GetWepType();
-                bool rngEquality = this.GetRng() == newWeapon.GetRng();
-                bool dmgEquality = this.GetDmg() == newWeapon.GetDmg();
+                bool wepNameEquality = this.GetWeaponName() == newWeapon.GetWeaponName();
+                bool wepTypeEquality = this.GetWeaponType() == newWeapon.GetWeaponType();
+                bool rngEquality = this.GetRange() == newWeapon.GetRange();
+                bool dmgEquality = this.GetDamage() == newWeapon.GetDamage();
                 bool hitEquality = this.GetHit() == newWeapon.GetHit();
-                bool crtEquality = this.GetCrt() == newWeapon.GetCrt();
+                bool crtEquality = this.GetCrit() == newWeapon.GetCrit();
                 bool triStrongEquality = this.GetTriStrong() == newWeapon.GetTriStrong();
                 bool triWeakEquality = this.GetTriWeak() == newWeapon.GetTriWeak();
                 bool effectEquality = this.GetEffect() == newWeapon.GetEffect();
@@ -163,17 +153,18 @@ namespace SigilOfFlame
 
             while(rdr.Read())
             {
-                string weaponWepName = rdr.GetString(1);
-                string weaponWepType = rdr.GetString(2);
-                int weaponRng = rdr.GetInt32(3);
-                int weaponDmg = rdr.GetInt32(4);
-                int weaponHit = rdr.GetInt32(5);
-                int weaponCrt = rdr.GetInt32(6);
-                string weaponTriStrong = rdr.GetString(7);
-                string weaponTriWeak = rdr.GetString(8);
-                string weaponEffect = rdr.GetString(9);
-                int weaponId = rdr.GetInt32(0);
-                Weapon newWeapon = new Weapon(weaponWepNameEquality && weaponWepTypeEquality && weaponRngEquality && weaponDmgEquality && weaponCrtEquality && weaponTriStrongEquality && weaponTriWeakEquality && weaponEffect && weaponIdEquality);
+                string weaponWepNameEquality = rdr.GetString(1);
+                string weaponWepTypeEquality = rdr.GetString(2);
+                int weaponRngEquality = rdr.GetInt32(3);
+                int weaponDmgEquality = rdr.GetInt32(4);
+                int weaponHitEquality = rdr.GetInt32(5);
+                int weaponCrtEquality = rdr.GetInt32(6);
+                string weaponTriStrongEquality = rdr.GetString(7);
+                string weaponTriWeakEquality = rdr.GetString(8);
+                string weaponEffectEquality = rdr.GetString(9);
+                int weaponIdEquality = rdr.GetInt32(0);
+
+                Weapon newWeapon = new Weapon(weaponWepNameEquality, weaponWepTypeEquality, weaponRngEquality, weaponHitEquality, weaponDmgEquality, weaponCrtEquality, weaponTriStrongEquality, weaponTriWeakEquality, weaponEffectEquality, weaponIdEquality);
                 allWeapons.Add(newWeapon);
             }
 
@@ -194,13 +185,17 @@ namespace SigilOfFlame
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO weapons (name) OUTPUT INSERTED.id VALUES (@WeaponName);", conn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO weapons (wepName, wepType, rng, dmg, hit, crt, triStrong, triWeak, effect) OUTPUT INSERTED.id VALUES (@WeaponName, @WeaponType, @Range, @Damage, @Hit, @Crit, @TriStrong, @TriWeak, @Effect);", conn);
 
-            SqlParameter nameParameter = new SqlParameter();
-            nameParameter.ParameterName = "@WeaponName";
-            nameParameter.Value = this.GetName();
-
-            cmd.Parameters.Add(nameParameter);
+            cmd.Parameters.Add(new SqlParameter("@WeaponName", this.GetWeaponName()));
+            cmd.Parameters.Add(new SqlParameter("@WeaponType", this.GetWeaponType()));
+            cmd.Parameters.Add(new SqlParameter("@Range", this.GetRange()));
+            cmd.Parameters.Add(new SqlParameter("@Damage", this.GetDamage()));
+            cmd.Parameters.Add(new SqlParameter("@Hit", this.GetHit()));
+            cmd.Parameters.Add(new SqlParameter("@Crit", this.GetCrit()));
+            cmd.Parameters.Add(new SqlParameter("@TriStrong", this.GetTriStrong()));
+            cmd.Parameters.Add(new SqlParameter("@TriWeak", this.GetTriWeak()));
+            cmd.Parameters.Add(new SqlParameter("@Effect", this.GetEffect()));
 
             SqlDataReader rdr = cmd.ExecuteReader();
 
@@ -230,15 +225,33 @@ namespace SigilOfFlame
             cmd.Parameters.Add(weaponIdParameter);
             SqlDataReader rdr = cmd.ExecuteReader();
 
+            string foundWeaponWepName = null;
+            string foundWeaponWepType = null;
+            int foundWeaponRng = 0;
+            int foundWeaponDmg = 0;
+            int foundWeaponHit = 0;
+            int foundWeaponCrt = 0;
+            string foundWeaponTriStrong = null;
+            string foundWeaponTriWeak = null;
+            string foundWeaponEffect = null;
             int foundWeaponId = 0;
-            string foundWeaponName = null;
+
 
             while(rdr.Read())
             {
+                foundWeaponWepName = rdr.GetString(1);
+                foundWeaponWepType = rdr.GetString(2);
+                foundWeaponRng = rdr.GetInt32(3);
+                foundWeaponDmg = rdr.GetInt32(4);
+                foundWeaponHit = rdr.GetInt32(5);
+                foundWeaponCrt = rdr.GetInt32(6);
+                foundWeaponTriStrong = rdr.GetString(7);
+                foundWeaponTriWeak = rdr.GetString(8);
+                foundWeaponEffect = rdr.GetString(9);
                 foundWeaponId = rdr.GetInt32(0);
-                foundWeaponName = rdr.GetString(1);
             }
-            Weapon foundWeapon = new Weapon(foundWeaponName,  foundWeaponId);
+
+            Weapon foundWeapon = new Weapon(foundWeaponWepName, foundWeaponWepType, foundWeaponRng, foundWeaponDmg, foundWeaponHit, foundWeaponCrt, foundWeaponTriStrong, foundWeaponTriWeak, foundWeaponEffect, foundWeaponId);
 
             if (rdr != null)
             {
