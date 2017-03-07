@@ -189,14 +189,7 @@ namespace SigilOfFlame
                 allUnits.Add(newUnit);
             }
 
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            DB.CloseSqlConnection(rdr, conn);
 
             return allUnits;
         }
@@ -225,14 +218,8 @@ namespace SigilOfFlame
             {
                 this._id = rdr.GetInt32(0);
             }
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            
+            DB.CloseSqlConnection(rdr, conn);
         }
 
         public static Unit Find(int id)
@@ -275,14 +262,8 @@ namespace SigilOfFlame
             }
             Unit foundUnit = new Unit(unitNameFound, unitTypeFound, weaponIdFound, hpFound, strFound, sklFound, spdFound, lckFound, defFound, resFound, idFound);
 
-            if (rdr != null)
-            {
-                rdr.Close();
-            }
-            if (conn != null)
-            {
-                conn.Close();
-            }
+            DB.CloseSqlConnection(rdr, conn);
+
             return foundUnit;
         }
 
