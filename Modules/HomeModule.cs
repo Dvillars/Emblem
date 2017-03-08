@@ -37,28 +37,21 @@ namespace SigilOfFlame
             {"allPlayers", allPlayers},
             {"allWeapons", allWeapons}
         };
+
+
         public HomeModule()
         {
             Get["/"] = _ => {
-                return View["index.cshtml", allUnits];
+                return View["index.cshtml", allThings];
             };
 
             Post["/ready-check"] = _ => {
+                return View["ready-check.cshtml"]
 
             };
 
             Get["/arena"] = _ => {
-
-                List<Unit> allPlayerUnits = new List<Unit>{};
-                foreach (var player in allPlayers)
-                {
-                    List<Unit> playerUnits = this.GetUnits();
-                    allUnits.Add(playerUnits);
-                }
-
-
-
-
+                return View["arena.cshtml", allthings]
 
             };
         }
