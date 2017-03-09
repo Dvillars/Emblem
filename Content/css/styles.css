@@ -1,0 +1,12 @@
+.p1-unit{
+    border: solid black 3px;
+    width: 50px;
+    display: inline;
+    background: #1950a8;
+}
+.p2-unit{
+    border: solid black 3px;
+    width: 200px;
+    display: inline;
+    background: #a8191b;
+}
