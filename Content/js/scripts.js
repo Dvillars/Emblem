@@ -13,16 +13,16 @@
 //
 //   return result;
 // }
-// //-------------------------------------------------------------------------|----------------------------------------
-// // function p1Swing (strMag, wepDamage, p1WepType, wepStrong, wepWeak, effect, phyical, resistance, p2WepType, unitType) {
-// //   var triBonus;
-// //   if (wepStrong == p2WepType && wepStrong != "null") {
-// //     triBonus = 1;
-// //   } else if (wepWeak == p2WepType && wepWeak != "null") {
-// //     triBonus = -1;
-// //   } else (
-// //     triBonus = 0;
-// //   )
+//-------------------------------------------------------------------------|----------------------------------------
+// function p1Swing (strMag, wepDamage, p1WepType, wepStrong, wepWeak, effect, phyical, resistance, p2WepType, unitType) {
+//   var triBonus;
+//   if (wepStrong == p2WepType && wepStrong != "null") {
+//     triBonus = 1;
+//   } else if (wepWeak == p2WepType && wepWeak != "null") {
+//     triBonus = -1;
+//   } else (
+//     triBonus = 0;
+//   )
 //
 //   var coefficient;
 //   if (effect == unitType && effect != "null") {
