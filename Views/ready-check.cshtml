@@ -8,7 +8,7 @@
 @foreach (var unit in Model["p1-units"])
 {
     <div class="">
-        <p>@unit.GetUnitName() the @unit.GetUnitType(), equipped with a @unit.GetWeapon()</p>
+        <p>@unit.GetUnitName(), the @unit.GetUnitType(), equipped with a @unit.GetWeapon().GetWeaponName()</p>
     </div>
 }
 
@@ -18,6 +18,6 @@
 @foreach (var unit in Model["p2-units"])
 {
     <div class="">
-        <p>@unit.GetUnitName() the @unit.GetUnitType(), equipped with a @unit.GetWeapon()</p>
+        <p>@unit.GetUnitName(), the @unit.GetUnitType(), equipped with a @unit.GetWeapon().GetWeaponName()</p>
     </div>
 }
