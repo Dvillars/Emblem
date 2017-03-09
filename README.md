@@ -34,8 +34,8 @@
   + __input:__ Nils
   + __Output:__ Name saves to database
 - Automatically assign a number to a player
-  + __input:__ Nils
-  + __Output:__ Nils
+  + __input:__ Marc
+  + __Output:__ id = 1
 
 ##### __Units__
 1. verify the table is empty
@@ -43,10 +43,12 @@
 - Add unit to database; return unit
   + __input:__ General
   + __Output:__ General
-1. Add weapon and return weapon stats
-  + __input:__ Sword
-  + __Output:__ DMG#, CRT#, TRI_S#, ...
-
+1. Call unit and return unit stats
+    + __input:__ General
+    + __Output:__ hp, str, def, ...
+- Call unit stat and return its value
+    + __input:__"hp"
+    + __Output:__"21"
 
 ##### __Weapons__
 1. verify the table is empty
@@ -80,7 +82,7 @@
 ## __*Example Tables:*__
 
 ![A picture of our table layout](/img/Table_layouts.png)
-  
+
 [A link to combat calculation](https://serenesforest.net/blazing-sword/miscellaneous/calculations/)
 
 
