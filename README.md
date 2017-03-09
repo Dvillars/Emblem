@@ -117,7 +117,7 @@ This web application uses:
 Copyright (c) 2017 **_Marc Larkin_** and **_Derek Villars_**
 
 
-![A picture of our table layout](/img/Table_layouts.png)
+![A picture of our table layout](/Content/img/Table_layouts.png)
 
 [A link to combat calculation](https://serenesforest.net/blazing-sword/miscellaneous/calculations/)
 
