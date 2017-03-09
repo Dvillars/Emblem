@@ -11,6 +11,8 @@ namespace SigilOfFlame
         public static List<Unit> allUnits = Unit.GetAll();
         public static List<Player> allPlayers = Player.GetAll();
         public static List<Weapon> allWeapons = Weapon.GetAll();
+        public static int playerOneId = 0;
+        public static int playerTwoId = 0;
 
 
 
@@ -31,6 +33,8 @@ namespace SigilOfFlame
                 Player playerTwo = new Player(Request.Form["player-two-name"]);
                 playerOne.Save();
                 playerTwo.Save();
+                playerOneId = playerOne.GetId();
+                playerTwoId = playerTwo.GetId();
                 playerOne.AddUnit(Unit.Find(Request.Form["p1-first-unit"]));
                 playerOne.AddUnit(Unit.Find(Request.Form["p1-second-unit"]));
                 playerOne.AddUnit(Unit.Find(Request.Form["p1-third-unit"]));
@@ -54,6 +58,21 @@ namespace SigilOfFlame
                 return View["ready-check.cshtml", allThings];
             };
 
+            Get["/arena"] = _ => {
+                Player playerOne = Player.Find(playerOneId);
+                Player playerTwo = Player.Find(playerTwoId);
+                Dictionary<string, object> allThings = new Dictionary<string, object>(){
+                    {"p1-name", playerOne.GetName()},
+                    {"p2-name", playerTwo.GetName()},
+                    {"p1-units", playerOne.GetUnits()},
+                    {"p2-units", playerTwo.GetUnits()},
+                    {"allUnits", allUnits},
+                    {"allPlayers", allPlayers},
+                    {"allWeapons", allWeapons}
+                };
+
+                return View["arena.cshtml", allThings];
+            };
 
         }
     }

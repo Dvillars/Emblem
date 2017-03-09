@@ -1,0 +1,67 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+@foreach (var unit in Model["p1-units"])
+{
+    <div class="@unit.GetUnitId() p1-unit">
+    <h1>@unit.GetUnitName()</h1>
+    <h4>@unit.GetUnitType()</h4>
+    @* Take @unit.GetUnitId, store it in a variable so we can manipulate the number, and insert the number in this span *@
+    <p><span id="@unit.GetUnitId()"></span>hp</p>
+
+    @* Unit info *@
+
+    @* Maybe use the GetHitpoints() to compare to the span above to get a percentage of health. span / GetHitpoints = Health%. Use this to color the health i.e. <20% is red >20%<50% is yellow <50% is green *@
+    <input class="@unit.GetUnitId()" type="hidden" name="hitpoints" value="@unit.GetHitpoints()">
+    <input class="@unit.GetUnitId()" type="hidden" name="strength" value="@unit.GetStrength()">
+    <input class="@unit.GetUnitId()" type="hidden" name="skill" value="@unit.GetSkill()">
+    <input class="@unit.GetUnitId()" type="hidden" name="speed" value="@unit.GetSpeed()">
+    <input class="@unit.GetUnitId()" type="hidden" name="luck" value="@unit.GetLuck()">
+    <input class="@unit.GetUnitId()" type="hidden" name="defense" value="@unit.GetDefense()">
+    <input class="@unit.GetUnitId()" type="hidden" name="resistance" value="@unit.GetResistance()">
+
+    @* Weapon info *@
+    <input class="@unit.GetUnitId()" type="hidden" name="weapon-name" value="@unit.GetWeapon().GetWeaponName()">
+    <input class="@unit.GetUnitId()" type="hidden" name="weapon-type" value="@unit.GetWeapon().GetWeaponType()">
+    <input class="@unit.GetUnitId()" type="hidden" name="range" value="@unit.GetWeapon().GetRange()">
+    <input class="@unit.GetUnitId()" type="hidden" name="damage" value="@unit.GetWeapon().GetDamage()">
+    <input class="@unit.GetUnitId()" type="hidden" name="hit-chance" value="@unit.GetWeapon().GetHit()">
+    <input class="@unit.GetUnitId()" type="hidden" name="crit-chance" value="@unit.GetWeapon().GetCrit()">
+    <input class="@unit.GetUnitId()" type="hidden" name="tri-strong" value="@unit.GetWeapon().GetTriStrong()">
+    <input class="@unit.GetUnitId()" type="hidden" name="tri-weak" value="@unit.GetWeapon().GetTriWeak()">
+    <input class="@unit.GetUnitId()" type="hidden" name="effect" value="@unit.GetWeapon().GetEffect()">
+    </div>
+}
+
+@foreach (var unit in Model["p2-units"])
+{
+    <div class="@unit.GetUnitId() p2-unit">
+    <h1>@unit.GetUnitName()</h1>
+    <h4>@unit.GetUnitType()</h4>
+    @* Take @unit.GetUnitId, store it in a variable so we can manipulate the number, and insert the number in this span *@
+    <p><span id="@unit.GetUnitId()"></span>hp</p>
+
+    @* Unit info *@
+
+    @* Maybe use the GetHitpoints() to compare to the span above to get a percentage of health. span / GetHitpoints = Health%. Use this to color the health i.e. <20% is red >20%<50% is yellow <50% is green *@
+    <input class="@unit.GetUnitId()" type="hidden" name="hitpoints" value="@unit.GetHitpoints()">
+    <input class="@unit.GetUnitId()" type="hidden" name="strength" value="@unit.GetStrength()">
+    <input class="@unit.GetUnitId()" type="hidden" name="skill" value="@unit.GetSkill()">
+    <input class="@unit.GetUnitId()" type="hidden" name="speed" value="@unit.GetSpeed()">
+    <input class="@unit.GetUnitId()" type="hidden" name="luck" value="@unit.GetLuck()">
+    <input class="@unit.GetUnitId()" type="hidden" name="defense" value="@unit.GetDefense()">
+    <input class="@unit.GetUnitId()" type="hidden" name="resistance" value="@unit.GetResistance()">
+
+    @* Weapon info *@
+    <input class="@unit.GetUnitId()" type="hidden" name="weapon-name" value="@unit.GetWeapon().GetWeaponName()">
+    <input class="@unit.GetUnitId()" type="hidden" name="weapon-type" value="@unit.GetWeapon().GetWeaponType()">
+    <input class="@unit.GetUnitId()" type="hidden" name="range" value="@unit.GetWeapon().GetRange()">
+    <input class="@unit.GetUnitId()" type="hidden" name="damage" value="@unit.GetWeapon().GetDamage()">
+    <input class="@unit.GetUnitId()" type="hidden" name="hit-chance" value="@unit.GetWeapon().GetHit()">
+    <input class="@unit.GetUnitId()" type="hidden" name="crit-chance" value="@unit.GetWeapon().GetCrit()">
+    <input class="@unit.GetUnitId()" type="hidden" name="tri-strong" value="@unit.GetWeapon().GetTriStrong()">
+    <input class="@unit.GetUnitId()" type="hidden" name="tri-weak" value="@unit.GetWeapon().GetTriWeak()">
+    <input class="@unit.GetUnitId()" type="hidden" name="effect" value="@unit.GetWeapon().GetEffect()">
+    </div>
+}
