@@ -8,18 +8,20 @@ function doubleHit(p1Speed, p2Speed) {
   } else if (p1Speed - p2Speed <= -4) {
     result = 'p2';
   } else {
-    result = null;
+    result = "null";
   }
-}
 
+  return result;
+}
+//-------------------------------------------------------------------------|----------------------------------------
 function p1Swing (strMag, wepDamage, p1WepType, wepStrong, wepWeak, effect, phyical, resistance, p2WepType, unitType) {
   var triBonus;
   if (wepStrong == p2WepType && wepStrong != "null") {
     triBonus = 1;
   } else if (wepWeak == p2WepType && wepWeak != "null") {
-    triBonus = -1
+    triBonus = -1;
   } else (
-    triBonus = 0
+    triBonus = 0;
   )
 
   var coefficient;
@@ -39,6 +41,37 @@ function p1Swing (strMag, wepDamage, p1WepType, wepStrong, wepWeak, effect, phyi
   }
 
   var damage = attack - defense;
+
+  return damage;
+}
+
+//   -------------------------------------------------------|-----------
+function accuracy(wepHit, skill, p1Luck, wepStrong, wepWeak, p2WepType, speed, p2Luck) {
+  var triBonus;
+  if (wepStrong == p2WepType && wepStrong != "null") {
+    triBonus = 15;
+  } else if (wepWeak == p2WepType && wepWeak != "null") {
+    triBonus = -15;
+  } else (
+    triBonus = 0;
+  )
+
+  var accuracy = wepHit + (skill * 2) + (p1Luck / 2) + triBonus;
+  var avoid = (speed * 3) + p1Luck;
+  var battle = accuracy - avoid;
+  return battle;
+}
+//----------------------------------|-----------
+function critical(unitType, wepCrit, skill, luck) {
+  var bonus;
+  if (p1WepType == "swordmaster" || p1WepType == "berserker") {
+    bonus = 15;
+  } else {
+    bonus = 0;
+  }
+  var rate = wepCrit + (skill / 2) + bonus;
+  var critical = rate - luck;
+  return critical;
 }
 
 var hitchance =
