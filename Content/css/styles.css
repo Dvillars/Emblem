@@ -1,9 +1,11 @@
 .p1-unit{
     border: solid black 3px;
     background: #1950a8;
+    text-align: center;
 }
 .p2-unit{
     border: solid black 3px;
     color: #222;
     background: #a8191b;
+    text-align: center;
 }
