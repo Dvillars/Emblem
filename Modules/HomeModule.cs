@@ -14,7 +14,6 @@ namespace SigilOfFlame
 
 
 
-
         public HomeModule()
         {
             Get["/"] = _ => {
@@ -32,6 +31,16 @@ namespace SigilOfFlame
                 Player playerTwo = new Player(Request.Form["player-two-name"]);
                 playerOne.Save();
                 playerTwo.Save();
+                playerOne.AddUnit(Unit.Find(Request.Form["p1-first-unit"]));
+                playerOne.AddUnit(Unit.Find(Request.Form["p1-second-unit"]));
+                playerOne.AddUnit(Unit.Find(Request.Form["p1-third-unit"]));
+                playerOne.AddUnit(Unit.Find(Request.Form["p1-fourth-unit"]));
+                playerOne.AddUnit(Unit.Find(Request.Form["p1-fifth-unit"]));
+                playerTwo.AddUnit(Unit.Find(Request.Form["p2-first-unit"]));
+                playerTwo.AddUnit(Unit.Find(Request.Form["p2-second-unit"]));
+                playerTwo.AddUnit(Unit.Find(Request.Form["p2-third-unit"]));
+                playerTwo.AddUnit(Unit.Find(Request.Form["p2-fourth-unit"]));
+                playerTwo.AddUnit(Unit.Find(Request.Form["p2-fifth-unit"]));
                 Dictionary<string, object> allThings = new Dictionary<string, object>(){
                     {"p1-name", playerOne.GetName()},
                     {"p2-name", playerTwo.GetName()},
@@ -45,10 +54,7 @@ namespace SigilOfFlame
                 return View["ready-check.cshtml", allThings];
             };
 
-            Get["/arena"] = _ => {
-                return View["arena.cshtml"];
 
-            };
         }
     }
 }
