@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System;
 
-namespace SigilOfFlame
+namespace SigilOfFlame.Objects
 {
     public class Weapon
     {
@@ -138,7 +138,7 @@ namespace SigilOfFlame
                 bool effectEquality = this.GetEffect() == newWeapon.GetEffect();
                 bool idEquality = this.GetWeaponId() == newWeapon.GetWeaponId();
 
-                return (wepNameEquality && wepTypeEquality && rngEquality && dmgEquality && hitEquality && crtEquality && triStrongEquality && triWeakEquality && idEquality);
+                return (wepNameEquality && wepTypeEquality && rngEquality && dmgEquality && hitEquality && crtEquality && triStrongEquality && triWeakEquality && effectEquality && idEquality);
             }
         }
 

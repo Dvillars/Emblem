@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Nancy;
 using System;
 using Nancy.ViewEngines.Razor;
+using SigilOfFlame.Objects;
 
 namespace SigilOfFlame
 {
@@ -11,47 +12,41 @@ namespace SigilOfFlame
         public static List<Player> allPlayers = Player.GetAll();
         public static List<Weapon> allWeapons = Weapon.GetAll();
 
-        public static Player playerOne = new Player(Request.Form["player-one-name"]);
-        public static Player playerTwo = new Player(Request.Form["player-two-name"]);
 
-        public static Dictionary<string, object> allThings = new Dictionary<string, object>()
-        {
-
-            {"p1", Dictionary<string, object> playerOneInformation = new Dictionary<string, object>()
-            {
-                {"name", playerOne.GetName()},
-                {"units", playerOne.GetUnits()}
-            };
-            },
-
-
-            {"p2", Dictionary<string, object> playerTwoInformation = new Dictionary<string, object>()
-            {
-                {"name", playerTwo.GetName()},
-                {"units", playerTwo.GetUnits()}
-
-            };
-            },
-
-            {"allUnits", allUnits},
-            {"allPlayers", allPlayers},
-            {"allWeapons", allWeapons}
-        };
 
 
         public HomeModule()
         {
             Get["/"] = _ => {
+                Dictionary<string, object> allThings = new Dictionary<string, object>(){
+                    {"allUnits", allUnits},
+                    {"allPlayers", allPlayers},
+                    {"allWeapons", allWeapons}
+                };
                 return View["index.cshtml", allThings];
             };
 
-            Post["/ready-check"] = _ => {
-                return View["ready-check.cshtml"]
+            Post["/"] = _ => {
 
+                Player playerOne = new Player(Request.Form["player-one-name"]);
+                Player playerTwo = new Player(Request.Form["player-two-name"]);
+                playerOne.Save();
+                playerTwo.Save();
+                Dictionary<string, object> allThings = new Dictionary<string, object>(){
+                    {"p1-name", playerOne.GetName()},
+                    {"p2-name", playerTwo.GetName()},
+                    {"p1-units", playerOne.GetUnits()},
+                    {"p2-units", playerTwo.GetUnits()},
+                    {"allUnits", allUnits},
+                    {"allPlayers", allPlayers},
+                    {"allWeapons", allWeapons}
+                };
+
+                return View["ready-check.cshtml", allThings];
             };
 
             Get["/arena"] = _ => {
-                return View["arena.cshtml", allthings]
+                return View["arena.cshtml"];
 
             };
         }

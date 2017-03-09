@@ -5,14 +5,14 @@
     <div class="row">
 
         <div class="col s6">
-            <form class="" action="index.html" method="post">
+            <form class="" action="/" method="post">
                 <input placeholder="Player One's Name" type="text" name="player-one-name">
                 <br>
                 <h4>Select Units</h4>
 
                 <label for="p1-first-unit">1st</label>
                 <select id="p1-first-unit">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -21,7 +21,7 @@
 
                 <label for="p1-second-unit">2nd</label>
                 <select id="p1-second-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -30,7 +30,7 @@
 
                 <label for="p1-third-unit">3rd</label>
                 <select id="p1-third-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -39,7 +39,7 @@
 
                 <label for="p1-fourth-unit">4th</label>
                 <select id="p1-fourth-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -48,20 +48,20 @@
 
                 <label for="p1-fifth-unit">5th</label>
                 <select id="p1-fifth-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
                 </select>
                 <br>
 
-                <input placeholder="Player Two's Name"type="text">
+                <input placeholder="Player Two's Name"type="text" name="player-two-name">
                 <br>
                 <h4>Select Units</h4>
 
                 <label for="p2-first-unit">1st</label>
                 <select id="p2-first-unit">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -70,7 +70,7 @@
 
                 <label for="p2-second-unit">2nd</label>
                 <select id="p2-second-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -79,7 +79,7 @@
 
                 <label for="p2-third-unit">3rd</label>
                 <select id="p2-third-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -88,7 +88,7 @@
 
                 <label for="p2-fourth-unit">4th</label>
                 <select id="p2-fourth-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
@@ -97,14 +97,16 @@
 
                 <label for="p2-fifth-unit">5th</label>
                 <select id="p2-fifth-unit" class="">
-                    @foreach (var item in Model)
+                    @foreach (var item in Model["allUnits"])
                     {
                         <option value="@item.GetUnitId()">@item.GetUnitName() - @item.GetUnitType()</option></option>
                     }
                 </select>
                 <br>
 
-                <button type="submit">submitin'</button>
+
+                <button type="submit">Confirm</button>
+
             </form>
         </div>
     </div>

@@ -1,2 +1,23 @@
-<h1>@Model["p1"]["name"]</h1>
-@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>@Model["p1-name"]</h1>
+<h4>Your team consists of:</h4>
+
+@foreach (var unit in Model["p1-units"])
+{
+    <div class="">
+        <p>@unit.GetUnitName() the @unit.GetUnitType(), equipped with a @unit.GetWeapon()</p>
+    </div>
+}
+
+<h1>@Model["p2-name"]</h1>
+<h4>Your team consists of:</h4>
+
+@foreach (var unit in Model["p2-units"])
+{
+    <div class="">
+        <p>@unit.GetUnitName() the @unit.GetUnitType(), equipped with a @unit.GetWeapon()</p>
+    </div>
+}

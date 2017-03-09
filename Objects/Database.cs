@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace SigilOfFlame
+namespace SigilOfFlame.Objects
 {
     public class DB
     {
