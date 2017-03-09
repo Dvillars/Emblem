@@ -1,11 +1,15 @@
 .p1-unit{
     border: solid black 3px;
     background: #1950a8;
+    width: 100px;
+    float: left;
     text-align: center;
 }
 .p2-unit{
     border: solid black 3px;
     color: #222;
     background: #a8191b;
+    width: 100px;
+    float: right;
     text-align: center;
 }

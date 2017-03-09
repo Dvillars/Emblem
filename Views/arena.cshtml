@@ -5,10 +5,10 @@
 @foreach (var unit in Model["p1-units"])
 {
     <div class="@unit.GetUnitId() p1-unit">
-        <h1>@unit.GetUnitName()</h1>
+        <h2>@unit.GetUnitName()</h2>
         <h4>@unit.GetUnitType()</h4>
         @* Take @unit.GetUnitId, store it in a variable so we can manipulate the number, and insert the number in this span *@
-        <p><span id="@unit.GetUnitId()">@unit.GetHitpoints().ToString()</span>hp</p>
+        <p><span id="@unit.GetUnitId() p1-unit">@unit.GetHitpoints().ToString()</span>hp</p>
 
         @* Unit info *@
 
@@ -31,16 +31,18 @@
         <input class="@unit.GetUnitId()" type="hidden" name="tri-strong" value="@unit.GetWeapon().GetTriStrong()">
         <input class="@unit.GetUnitId()" type="hidden" name="tri-weak" value="@unit.GetWeapon().GetTriWeak()">
         <input class="@unit.GetUnitId()" type="hidden" name="effect" value="@unit.GetWeapon().GetEffect()">
+
+        <input class="@unit.GetUnitId()" type="hidden" name="id" value="@unit.GetUnitId()">
     </div>
 }
 
 @foreach (var unit in Model["p2-units"])
 {
     <div class="@unit.GetUnitId() p2-unit">
-        <h1>@unit.GetUnitName()</h1>
+        <h2>@unit.GetUnitName()</h2>
         <h4>@unit.GetUnitType()</h4>
         @* Take @unit.GetUnitId, store it in a variable so we can manipulate the number, and insert the number in this span *@
-        <p><span id="@unit.GetUnitId()">@unit.GetHitpoints().ToString()</span>hp</p>
+        <p><span id="@unit.GetUnitId() p2-unit">@unit.GetHitpoints().ToString()</span>hp</p>
 
         @* Unit info *@
 
@@ -63,5 +65,7 @@
         <input class="@unit.GetUnitId()" type="hidden" name="tri-strong" value="@unit.GetWeapon().GetTriStrong()">
         <input class="@unit.GetUnitId()" type="hidden" name="tri-weak" value="@unit.GetWeapon().GetTriWeak()">
         <input class="@unit.GetUnitId()" type="hidden" name="effect" value="@unit.GetWeapon().GetEffect()">
+        <input class="@unit.GetUnitId()" type="hidden" name="id" value="@unit.GetUnitId()">
+
     </div>
 }
